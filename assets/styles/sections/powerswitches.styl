@@ -1,0 +1,131 @@
+.powerswitches
+  width 100vw
+  height 100vh
+  background Black
+  display flex
+  justify-content space-around
+  align-items center
+  &__switchlabel
+    position relative
+    display flex
+    justify-content center
+    align-items center
+    width BS * 128
+    height BS * 128
+    border-radius BS * 10
+    background Background
+    cursor pointer
+    transition transform 0.3s ease-out
+    overflow hidden
+    &:focus
+      outline none
+    &:active
+      .powerswitches__switchlight
+        box-shadow BS*0 BS*0 0 darken(LightOn, 90%)
+    &:after
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background-image linear-gradient(135deg, transparent 0%, White 40%, transparent 45%, darken(White, 35%) 98%)
+  &__switchlight
+    position relative
+    width BS * 64
+    height BS * 64
+    border-radius BS * 10
+    background darken(LightOn, 70%)
+    transition background-color 0.3s ease-out, box-shadow 0.1s ease-out
+    box-shadow BS*1 BS*1 BS*1 darken(LightOn, 90%)
+    transform-origin center
+    overflow hidden
+    z-index 2
+    &:before
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background-image radial-gradient(circle at center, alpha(White, 0.1) 0%, transparent 80%)
+    &:after
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background-image linear-gradient(135deg, alpha(White, 0.25) 0%, transparent 40%, darken(LightOn, 90%) 98%)
+      transition background-image 0.1s ease-out
+  &__switchcheckbox
+    position absolute
+    visibility hidden
+    &:checked
+      & + .powerswitches__switchlight
+        background LightOn
+        box-shadow BS*0.5 BS*0.5 0 darken(LightOn, 90%)
+        &:after
+          background-image linear-gradient(135deg, alpha(White, 0.5) 0%, transparent 40%, darken(LightOn, 33%) 98%)
+        &:active
+          box-shadow BS*0 BS*0 0 darken(LightOn, 90%)
+
+
+  &--2
+    .powerswitches
+      &__powerswitch
+        display flex
+        flex-direction column
+        width BS * 64
+        height BS * 128
+        overflow hidden
+        border-radius BS * 5
+      &__powerswitchhalf
+        font-weight 700
+        position relative
+        display flex
+        justify-content center
+        align-items center
+        width 100%
+        height 50%
+        cursor pointer
+        color LightOn
+        background darken(LightOn, 75%)
+        z-index 1
+        background-image linear-gradient(135deg, transparent 55%, darken(LightOn, 48) 100%)
+        &:after
+          content ''
+          position absolute
+          top 0
+          left 0
+          height 100%
+          width 100%
+          background-image linear-gradient(135deg, alpha(White, 0.05) 0%, transparent 40%)
+      &__on_off
+        position absolute
+        visibility hidden
+        &:checked
+          & + .powerswitches__powerswitchhalf
+            color darken(LightOn, 75%)
+            background LightOn
+            z-index 3
+            &:after
+              content ''
+              position absolute
+              top 0
+              left 0
+              height 100%
+              width 100%
+              background-image linear-gradient(135deg, alpha(White, 0.5) 0%, transparent 40%)
+            &:before
+              content ''
+              position absolute
+              top 0
+              left 0
+              height 100%
+              width 100%
+              background-image linear-gradient(135deg, transparent 70%, darken(LightOn, 20) 100%)
+            &--off
+              box-shadow 0 BS*-2 0 darken(LightOn, 30)
+            &--on
+              box-shadow 0 BS*2 0 darken(LightOn, 85%)

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>LeafPi Frontend</title>
+  </head>
+  <link rel="stylesheet" href="./dist/css/styles.min.css">
+  <body>
+
+    <section class="powerswitches">
+      <div class="powerswitches__powerswitch">
+        <label class="powerswitches__switchlabel" for="powerswitches__switchcheckbox">
+          <input type="checkbox" class="powerswitches__switchcheckbox" name="powerswitches__switchcheckbox" id="powerswitches__switchcheckbox">
+          <span class="powerswitches__switchlight">
+
+          </span>
+        </label>
+      </div>
+    </section>
+
+    <section class="powerswitches powerswitches--2">
+      <div class="powerswitches__powerswitch">
+        <input type="radio" class="powerswitches__on_off" name="powerswitches__on_off" id="powerswitches__on" value="powerswitches__powerswitchhalf_on">
+        <label class="powerswitches__powerswitchhalf powerswitches__powerswitchhalf--on" for="powerswitches__on">
+          <span>ON</span>
+        </label>
+        <input type="radio" class="powerswitches__on_off" name="powerswitches__on_off" id="powerswitches__off" value="powerswitches__powerswitchhalf_off" checked="checked">
+        <label class="powerswitches__powerswitchhalf powerswitches__powerswitchhalf--off" for="powerswitches__off">
+          <span>OFF</span>
+        </label>
+      </div>
+
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./dist/js/functions.min.js"></script>
+  </body>
+</html>
