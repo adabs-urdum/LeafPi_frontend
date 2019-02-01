@@ -1,27 +1,33 @@
+// Mode Switches
+// ------------------------------------------------------------
 .powerswitches
   width 100vw
   height 100vh
-  background Black
+  background darken(LightOn, 95%)
   display flex
-  justify-content space-around
+  justify-content space-evenly
   align-items center
+  &__switch
+    height auto
   &__switchlabel
     position relative
     display flex
     justify-content center
     align-items center
-    width BS * 128
-    height BS * 128
+    box-sizing border-box
+    width BaseUIUnit * BS * 1.5
+    height BaseUIUnit * BS * 1.5
+    // !!!!!!!!
+    // width BaseUIUnit * BS
+    // height BaseUIUnit * BS
+    //end !!!!!!!!
     border-radius BS * 10
-    background Background
+    background Light
     cursor pointer
     transition transform 0.3s ease-out
-    overflow hidden
+    border solid BS * 2 darken(LightOn, 90%)
     &:focus
       outline none
-    &:active
-      .powerswitches__switchlight
-        box-shadow BS*0 BS*0 0 darken(LightOn, 90%)
     &:after
       content ''
       position absolute
@@ -30,17 +36,18 @@
       width 100%
       height 100%
       background-image linear-gradient(135deg, transparent 0%, White 40%, transparent 45%, darken(White, 35%) 98%)
+      border-radius BS * 8
   &__switchlight
     position relative
-    width BS * 64
-    height BS * 64
+    width 55%
+    height 55%
     border-radius BS * 10
     background darken(LightOn, 70%)
     transition background-color 0.3s ease-out, box-shadow 0.1s ease-out
     box-shadow BS*1 BS*1 BS*1 darken(LightOn, 90%)
-    transform-origin center
     overflow hidden
     z-index 2
+    border solid BS*1 darken(LightOn, 90%)
     &:before
       content ''
       position absolute
@@ -58,41 +65,99 @@
       height 100%
       background-image linear-gradient(135deg, alpha(White, 0.25) 0%, transparent 40%, darken(LightOn, 90%) 98%)
       transition background-image 0.1s ease-out
+  &__glow
+    position absolute
+    top 50%
+    left 50%
+    width BS * 220
+    height BS * 220
+    border-radius 50%
+    transform translateX(-50%) translateY(-50%) scale(0.0001)
+    transition transform 0.5s ease-out
+    background-image radial-gradient(circle at center, alpha(LightOn, 0.3) 0%, transparent 60%)
   &__switchcheckbox
     position absolute
     visibility hidden
     &:checked
-      & + .powerswitches__switchlight
-        background LightOn
-        box-shadow BS*0.5 BS*0.5 0 darken(LightOn, 90%)
-        &:after
-          background-image linear-gradient(135deg, alpha(White, 0.5) 0%, transparent 40%, darken(LightOn, 33%) 98%)
-        &:active
-          box-shadow BS*0 BS*0 0 darken(LightOn, 90%)
+      & ~ .powerswitches
+        &__switchlight
+          background LightOn
+          box-shadow BS*0.5 BS*0.5 0 darken(LightOn, 90%)
+          &:after
+            background-image linear-gradient(135deg, alpha(White, 0.5) 0%, transparent 40%, darken(LightOn, 33%) 98%)
+        &__glow
+          transform scale(1) translateX(-50%) translateY(-50%)
 
 
-  &--2
-    .powerswitches
-      &__powerswitch
-        display flex
-        flex-direction column
-        width BS * 64
-        height BS * 128
-        overflow hidden
-        border-radius BS * 5
-      &__powerswitchhalf
-        font-weight 700
-        position relative
-        display flex
-        justify-content center
-        align-items center
-        width 100%
-        height 50%
-        cursor pointer
+// On/Off Switches
+// ------------------------------------------------------------
+.powerswitches
+  bs-font-size(BaseUIUnit / 2.2)
+  transition color 1s ease-out
+  &__powerswitch
+    display flex
+    flex-direction column
+    width BaseUIUnit * BS * 1.5
+    height BaseUIUnit * BS * 3
+    overflow hidden
+    border-radius BS * 10
+    border solid BS*1.5 darken(White, 20%)
+    box-sizing border-box
+  &__powerswitchhalf
+    font-weight 700
+    position relative
+    display flex
+    justify-content center
+    align-items center
+    width 100%
+    height 50%
+    cursor pointer
+    background darken(LightOn, 90%)
+    z-index 1
+    background-image linear-gradient(135deg, transparent 55%, darken(LightOn, 95%) 100%)
+    color darken(LightOn, 75%)
+    transition 0.3s ease-out color
+    &:after
+      content ''
+      position absolute
+      top 0
+      left 0
+      height 100%
+      width 100%
+      background-image linear-gradient(135deg, alpha(White, 0.05) 0%, transparent 40%)
+    span
+      position relative
+      z-index 10
+      text-shadow 0 0 BS*2 darken(LightOn, 100%)
+      line-height normal
+      &:after
+        content ''
+        position absolute
+        top 50%
+        left 50%
+        transform translateX(-50%) translateY(-50%)
+        width 120%
+        height 120%
+        background-image radial-gradient(circle at center, alpha(LightOn, 0.2) 0%, transparent 60%)
+        transform scale(0.01)
+      &:before
+        content ''
+        position absolute
+        top 50%
+        left 50%
+        width 300%
+        height 300%
+        background-image radial-gradient(circle at center, alpha(LightOn, 0.3) 0%, transparent 50%)
+        transform scale(0.001) translateX(-50%) translateY(-50%)
+        transform-origin center
+  &__on_off
+    position absolute
+    visibility hidden
+    &:checked
+      & + .powerswitches__powerswitchhalf
         color LightOn
-        background darken(LightOn, 75%)
-        z-index 1
-        background-image linear-gradient(135deg, transparent 55%, darken(LightOn, 48) 100%)
+        background Light
+        z-index 3
         &:after
           content ''
           position absolute
@@ -100,32 +165,81 @@
           left 0
           height 100%
           width 100%
-          background-image linear-gradient(135deg, alpha(White, 0.05) 0%, transparent 40%)
-      &__on_off
-        position absolute
-        visibility hidden
-        &:checked
-          & + .powerswitches__powerswitchhalf
-            color darken(LightOn, 75%)
-            background LightOn
-            z-index 3
-            &:after
-              content ''
-              position absolute
-              top 0
-              left 0
-              height 100%
-              width 100%
-              background-image linear-gradient(135deg, alpha(White, 0.5) 0%, transparent 40%)
-            &:before
-              content ''
-              position absolute
-              top 0
-              left 0
-              height 100%
-              width 100%
-              background-image linear-gradient(135deg, transparent 70%, darken(LightOn, 20) 100%)
-            &--off
-              box-shadow 0 BS*-2 0 darken(LightOn, 30)
-            &--on
-              box-shadow 0 BS*2 0 darken(LightOn, 85%)
+          background-image radial-gradient(circle at center, darken(White, 0%) 0%, transparent 80%)
+        &:before
+          content ''
+          position absolute
+          top 0
+          left 0
+          height 100%
+          width 100%
+          background-image linear-gradient(135deg, transparent 0%, darken(White, 50%) 100%)
+        span
+          background-image radial-gradient(circle at center, alpha(LightOn, 0.1) 0%, transparent 60%)
+          transform scale(1)
+          &:before
+            transform scale(1) translateX(-50%) translateY(-50%)
+
+
+// On/Off Switches
+// ------------------------------------------------------------
+.powerswitches
+  &__slider
+    position relative
+    height BS * BaseUIUnit * 1.4
+    width BS * BaseUIUnit * 6
+    border-radius BS * 10
+    border solid White 2px
+    background-image linear-gradient(90deg, darken(LightOn, 90%) 0%, LightOn 100%)
+    overflow hidden
+  &__slider_indicator
+    position absolute
+    top 0
+    left 25%
+    display flex
+    justify-content center
+    align-items center
+    height BS * BaseUIUnit * 1.4
+    width BS * BaseUIUnit * .9
+    border-radius BS * 9
+    background Light
+    cursor grab
+    overflow hidden
+    background-image radial-gradient(circle at center, transparent 30%, alpha(darken(White, 80%), 50%) 95%)
+    box-shadow 0 0 BS*3 darken(LightOn, 99%)
+    &:before
+      content ''
+      position absolute
+      top 0
+      left 0
+      height 100%
+      width 100%
+      background-image linear-gradient(135deg, alpha(White, 1) 20%, transparent 80%)
+    &:after
+      content ''
+      position absolute
+      width 100%
+      height 100%
+      background-image linear-gradient(-45deg, darken(White, 20%) 0%, transparent 40%)
+  &__touch_rills
+    z-index 5
+    height BS * BaseUIUnit * 0.8
+    display flex
+    justify-content space-evenly
+  &__touch_rill
+    position relative
+    width BS * 15
+    height 100%
+    background-image linear-gradient(95deg, lighten(LightOn, 60%) 20%, LightOn 40%, LightOn 70%, alpha(darken(LightOn, 60%), 50%) 90%)
+    border-radius BS * 5
+    border solid BS*1 darken(LightOn, 95%)
+    box-sizing border-box
+    &:after
+      position absolute
+      content ''
+      top 50%
+      left 50%
+      width 320%
+      height 160%
+      transform translateX(-50%) translateY(-50%)
+      background-image radial-gradient(ellipse at center, alpha(LightOn, 40%), transparent 80%)
