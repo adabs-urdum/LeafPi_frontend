@@ -6,7 +6,29 @@
     height BS * BaseUIUnit * 1.4
     width BS * BaseUIUnit * 6
     border solid White 2px
-    background-image linear-gradient(90deg, transparentify(LightOn, 1%) 0%, transparentify(LightOn, 50%) 50%, transparentify(LightOn, 100%) 100%)
+    background-image linear-gradient(90deg,
+      transparentify(LightOn, 1%) 0%,
+      transparentify(LightOn, 5%) 5%,
+      transparentify(LightOn, 10%) 10%,
+      transparentify(LightOn, 15%) 15%,
+      transparentify(LightOn, 20%) 20%,
+      transparentify(LightOn, 25%) 25%,
+      transparentify(LightOn, 30%) 30%,
+      transparentify(LightOn, 35%) 35%,
+      transparentify(LightOn, 40%) 40%,
+      transparentify(LightOn, 45%) 45%,
+      transparentify(LightOn, 50%) 50%,
+      transparentify(LightOn, 55%) 55%,
+      transparentify(LightOn, 60%) 60%,
+      transparentify(LightOn, 65%) 65%,
+      transparentify(LightOn, 70%) 70%,
+      transparentify(LightOn, 75%) 75%,
+      transparentify(LightOn, 80%) 80%,
+      transparentify(LightOn, 85%) 85%,
+      transparentify(LightOn, 90%) 90%,
+      transparentify(LightOn, 95%) 95%,
+      transparentify(LightOn, 100%) 100%
+    )
   &__slider_indicator
     position absolute
     top 0
@@ -57,7 +79,7 @@
     position relative
     width BS * 5
     height 100%
-    background-image linear-gradient(90deg, transparentify(LightOn, 100%) 20%, darken(White, 60%) 100%)
+    background-image linear-gradient(90deg, transparentify(LightOn, 80%) 20%, darken(White, 60%) 100%)
     overflow hidden
     &:after
       content ''
