@@ -5,205 +5,22 @@
   min-height 100vh
   background darken(LightOn, 95%)
   display flex
+  bs-font-size(BaseUIUnit / 2.2)
   justify-content space-evenly
   align-items center
   flex-wrap wrap
-  &__vertical_list_wrapper
-    &--radio
-      border solid White 2px
-  &--vertical_list
+  color LightOn
+  text-transform uppercase
+  font-weight 700
+  &--text
+    text-transform unset
+    font-weight unset
     flex-direction column
-    justify-content center
-    .powerswitches
-      &__switch
-        &--checkbox, &--radio
-          justify-content flex-end
-  &__switch
-    position relative
-    display flex
-    height auto
-    border solid White 2px
-    &--radio
-      border none
-      &:after
-        opacity 0
-    &:after
-      content ''
-      position absolute
-      top 0
-      left 0
-      width 100%
-      height 100%
-      background-image linear-gradient(135deg, transparentify(White, 40%) 0%, transparent 10%, transparent 90%, transparentify(White, 10%) 98%)
-    &--checkbox, &--radio
-      & + .powerswitches__switch--checkbox, & + .powerswitches__switch--radio
-        margin-top -2px
-  &__switch_label_text
-    position relative
-    display flex
-    justify-content center
-    align-items center
-    padding-left BS * 20
-    z-index 11
-    cursor pointer
-    color LightOn
-    text-shadow 0 0 BS*1 darken(LightOn, 100%), BS*1 BS*1 BS*1 darken(LightOn, 100%)
-  &__switch_label
-    position relative
-    display flex
-    justify-content center
-    align-items center
-    width BaseUIUnit * BS * 1.5
-    height BaseUIUnit * BS * 1.5
-    // !!!!!!!!
-    // width BaseUIUnit * BS
-    // height BaseUIUnit * BS
-    //end !!!!!!!!
-    border-radius BS * 9
-    cursor pointer
-    transition transform 0.3s ease-out
-    &:focus
-      outline none
-  &__switchlight
-    position relative
-    width 55%
-    height 55%
-    border-radius BS * 10
-    background darken(LightOn, 70%)
-    transition background-color 0.3s ease-out, box-shadow 0.1s ease-out
-    box-shadow BS*1 BS*1 BS*1 darken(LightOn, 90%)
-    overflow hidden
-    z-index 2
-    border solid BS*0.5 darken(LightOn, 90%)
-    &:before
-      content ''
-      position absolute
-      top 0
-      left 0
-      width 100%
-      height 100%
-      background-image radial-gradient(circle at center, alpha(White, 0.1) 0%, transparent 80%)
-    &:after
-      content ''
-      position absolute
-      top 0
-      left 0
-      width 100%
-      height 100%
-      background-image linear-gradient(135deg, alpha(White, 0.25) 0%, transparent 40%, darken(LightOn, 90%) 98%)
-      transition background-image 0.1s ease-out
-  &__glow
-    position absolute
-    top 50%
-    left 50%
-    width BS * 220
-    height BS * 220
-    border-radius 50%
-    transform translateX(-50%) translateY(-50%) scale(0.0001)
-    transition transform 0.5s ease-out
-    background-image radial-gradient(circle at center, alpha(LightOn, 0.3) 0%, transparent 60%)
-    z-index 10
-    pointer-events none
-  &__switchcheckbox, &__switch_radio
-    position absolute
-    visibility hidden
-    &:checked
-      & ~ .powerswitches
-        &__switchlight
-          background LightOn
-          box-shadow BS*0.5 BS*0.5 0 darken(LightOn, 90%)
-          &:after
-            background-image linear-gradient(135deg, alpha(White, 0.5) 0%, transparent 40%, darken(LightOn, 33%) 98%)
-        &__glow
-          transform scale(1) translateX(-50%) translateY(-50%)
-
-
-// On/Off Switches
-// ------------------------------------------------------------
-.powerswitches
-  bs-font-size(BaseUIUnit / 2.2)
-  transition color 1s ease-out
-  &__powerswitch
-    display flex
-    flex-direction column
-    min-width BaseUIUnit * BS * 1.5
-    height BaseUIUnit * BS * 3
-    overflow hidden
-    border solid White 2px
-    box-sizing border-box
-  &__powerswitchhalf
-    font-weight 700
-    position relative
-    display flex
-    justify-content center
-    align-items center
-    width 100%
-    height 50%
-    cursor pointer
-    background darken(LightOn, 90%)
-    z-index 1
-    background-image linear-gradient(135deg, transparent 55%, darken(LightOn, 95%) 100%)
-    color darken(LightOn, 75%)
-    transition 0.3s ease-out color
-    &:after
-      content ''
-      position absolute
-      top 0
-      left 0
-      height 100%
-      width 100%
-      background-image linear-gradient(135deg, alpha(White, 0.05) 0%, transparent 40%)
-    span
-      position relative
-      z-index 10
-      text-shadow 0 0 BS*1 darken(LightOn, 100%), BS*1 BS*1 BS*1 darken(LightOn, 100%)
-      line-height normal
-      &:after
-        content ''
-        position absolute
-        top 50%
-        left 50%
-        transform translateX(-50%) translateY(-50%)
-        width 120%
-        height 120%
-        background-image radial-gradient(circle at center, alpha(LightOn, 0.2) 0%, transparent 60%)
-        transform scale(0.01)
-      &:before
-        content ''
-        position absolute
-        top 50%
-        left 50%
-        width 300%
-        height 300%
-        background-image radial-gradient(circle at center, alpha(LightOn, 0.3) 0%, transparent 50%)
-        transform scale(0.001) translateX(-50%) translateY(-50%)
-        transform-origin center
-  &__on_off
-    position absolute
-    visibility hidden
-    &:checked
-      & + .powerswitches__powerswitchhalf
-        color LightOn
-        background Light
-        z-index 3
-        &:after
-          content ''
-          position absolute
-          top 0
-          left 0
-          height 100%
-          width 100%
-          background-image radial-gradient(circle at center, darken(White, 0%) 0%, transparent 80%)
-        &:before
-          content ''
-          position absolute
-          top 0
-          left 0
-          height 100%
-          width 100%
-          background-image linear-gradient(135deg, transparent 0%, darken(White, 50%) 100%)
-        span
-          background-image radial-gradient(circle at center, alpha(LightOn, 0.1) 0%, transparent 60%)
-          transform scale(1)
-          &:before
-            transform scale(1) translateX(-50%) translateY(-50%)
+    .powerswitches__light_label
+      width BaseUIUnit * BS * 1
+      height BaseUIUnit * BS * 1
+      margin-bottom BS * 10
+    .powerswitches__bulbs_wrapper
+      display flex
+      width BS * 400
+      justify-content space-evenly

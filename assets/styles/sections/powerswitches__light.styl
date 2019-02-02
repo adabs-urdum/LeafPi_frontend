@@ -1,0 +1,110 @@
+.powerswitches
+  &__vertical_list_wrapper
+    &--radio
+      border solid White 2px
+  &--vertical_list
+    flex-direction column
+    justify-content center
+    .powerswitches
+      &__switch
+        &--checkbox, &--radio
+          justify-content flex-end
+  &__switch
+    position relative
+    display flex
+    height auto
+    border solid White 2px
+    &--radio
+      border none
+      &:after
+        opacity 0
+    &:after
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background-image linear-gradient(135deg, transparentify(White, 10%) 0%, transparent 10%, transparent 90%, transparentify(White, 10%) 98%)
+    &--checkbox, &--radio
+      & + .powerswitches__switch--checkbox, & + .powerswitches__switch--radio
+        margin-top -2px
+  &__light_label_text
+    position relative
+    display flex
+    justify-content center
+    align-items center
+    z-index 11
+    cursor pointer
+    color LightOn
+    text-shadow 0 0 BS*1 darken(LightOn, 100%), BS*1 BS*1 BS*1 darken(LightOn, 100%)
+    span
+      margin-left BS * 20
+  &__light_label
+    position relative
+    display flex
+    justify-content center
+    align-items center
+    width BaseUIUnit * BS * 1.5
+    height BaseUIUnit * BS * 1.5
+    // !!!!!!!!
+    // width BaseUIUnit * BS
+    // height BaseUIUnit * BS
+    //end !!!!!!!!
+    border-radius BS * 9
+    cursor pointer
+    transition transform 0.3s ease-out
+    &:focus
+      outline none
+  &__bulb
+    position relative
+    width 55%
+    height 55%
+    border-radius BS * 10
+    background darken(LightOn, 70%)
+    transition background-color 0.3s ease-out, box-shadow 0.1s ease-out
+    box-shadow BS*1 BS*1 BS*1 darken(LightOn, 90%)
+    overflow hidden
+    z-index 2
+    border solid BS*0.5 darken(LightOn, 90%)
+    &:before
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background-image radial-gradient(circle at center, alpha(White, 0.1) 0%, transparent 80%)
+    &:after
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background-image linear-gradient(135deg, alpha(White, 0.25) 0%, transparent 40%, darken(LightOn, 90%) 98%)
+      transition background-image 0.1s ease-out
+  &__glow
+    position absolute
+    top 50%
+    left 50%
+    width BS * 220
+    height BS * 220
+    border-radius 50%
+    transform translateX(-50%) translateY(-50%) scale(0.0001)
+    transition transform 0.5s ease-out
+    background-image radial-gradient(circle at center, alpha(LightOn, 0.3) 0%, transparent 60%)
+    z-index 10
+    pointer-events none
+  &__switchcheckbox, &__switch_radio
+    position absolute
+    visibility hidden
+    &:checked
+      & ~ .powerswitches
+        &__bulb
+          background LightOn
+          box-shadow BS*0.5 BS*0.5 0 darken(LightOn, 90%)
+          &:after
+            background-image linear-gradient(135deg, alpha(White, 0.5) 0%, transparent 40%, darken(LightOn, 33%) 98%)
+        &__glow
+          transform scale(1) translateX(-50%) translateY(-50%)

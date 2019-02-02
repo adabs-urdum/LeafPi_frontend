@@ -1,8 +1,6 @@
 // <button> element
 // ------------------------------------------------------------
 .powerswitches
-  text-transform uppercase
-  font-weight 700
   &__button_button
     position relative
     font-weight 700
@@ -41,7 +39,7 @@
       width 100%
       height 100%
       overflow hidden
-      background-image linear-gradient(-30deg, transparent 85%, alpha(Light, 50%) 100%)
+      background-image linear-gradient(-30deg, transparent 85%, alpha(darken(White, 50%), 25%) 100%)
     &:before
       content ''
       position absolute
@@ -50,4 +48,4 @@
       width 100%
       height 100%
       overflow hidden
-      background-image linear-gradient(-30deg, alpha(darken(White, 50%), 60%) 0%, transparent 20%)
+      background-image linear-gradient(-30deg, alpha(darken(White, 50%), 20%) 0%, transparent 20%)

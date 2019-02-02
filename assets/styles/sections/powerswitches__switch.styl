@@ -1,0 +1,83 @@
+.powerswitches
+  &__powerswitch
+    display flex
+    flex-direction column
+    min-width BaseUIUnit * BS * 1.5
+    border solid White 2px
+    box-sizing border-box
+    &--2
+      height BaseUIUnit * BS * 1.5 * 2
+    &--3
+      height BaseUIUnit * BS * 1.5 * 3
+    &--4
+      height BaseUIUnit * BS * 1.5 * 4
+    &--5
+      height BaseUIUnit * BS * 1.5 * 5
+    &--6
+      height BaseUIUnit * BS * 1.5 * 6
+  &__powerswitchpart
+    font-weight 700
+    position relative
+    display flex
+    justify-content center
+    align-items center
+    width 100%
+    height 50%
+    cursor pointer
+    background darken(LightOn, 90%)
+    z-index 1
+    background-image linear-gradient(135deg, transparent 55%, darken(LightOn, 95%) 100%)
+    color darken(LightOn, 75%)
+    transition 0.3s ease-out color
+    &:after
+      content ''
+      position absolute
+      top 0
+      left 0
+      height 100%
+      width 100%
+      background-image linear-gradient(135deg, alpha(White, 0.05) 0%, transparent 40%)
+    &:before
+      content ''
+      position absolute
+      top 50%
+      left 50%
+      width 100%
+      height 100%
+      background-image linear-gradient(0deg, transparentify(LightOn, 35%) 0%, transparent 30% )
+      // background-image radial-gradient(circle at center, alpha(LightOn, 0.4) 0%, transparent 50%)
+      transform translateX(-50%) translateY(-50%)
+      transform-origin left top
+      transition transform 0.3s ease-out, opacity 0.3s
+      opacity 0
+      z-index 15
+      pointer-events none
+  &__powerswitchpart_text
+    position relative
+    z-index 10
+    text-shadow 0 0 BS*1 darken(LightOn, 100%), BS*1 BS*1 BS*1 darken(LightOn, 100%)
+    line-height normal
+    transition transform 1s ease-out
+    padding 0 BS*20
+    &:after
+      content ''
+      position absolute
+      top 50%
+      left 50%
+      transform translateX(-50%) translateY(-50%)
+      width 120%
+      height 120%
+      background-image radial-gradient(circle at center, alpha(LightOn, 0.2) 0%, transparent 60%)
+      transform scale(0.01)
+  &__input
+    position absolute
+    visibility hidden
+    &:checked
+      & + .powerswitches__powerswitchpart
+        color LightOn
+        z-index 3
+        &:before
+          transform translateX(-50%) translateY(-50%)
+          opacity 1
+        .powerswitches__powerswitchpart_text
+          transform scale(1)
