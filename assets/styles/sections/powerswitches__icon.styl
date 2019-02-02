@@ -1,0 +1,65 @@
+.powerswitches
+  &__icon
+    position relative
+    &_wrapper
+      position relative
+      display block
+    &_glow
+      z-index 1
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      &:before
+        content ''
+        position absolute
+        top 50%
+        left 50%
+        transform translateX(-50%) translateY(-50%)
+        width 95%
+        height 95%
+        border-radius 50%
+        background alpha(LightOn, 0.2)
+      &:after
+        content ''
+        position absolute
+        left 50%
+        top 50%
+        width 150%
+        height 150%
+        background-image radial-gradient(circle at center, alpha(LightOn, 0.5) 0%, transparent 60%)
+        transform translateY(-50%) translateX(-50%)
+        transition transform 0.3s ease-out, width 0.3s ease-out, height 0.3s ease-out
+        transform-origin center
+    &_canvas
+      width BS * 100
+      z-index 1
+    &_svg, svg
+      z-index 2
+      position absolute
+      display block
+      top 0
+      left 0
+      width 100%
+      height 100%
+    &_input
+      display none
+      &:checked
+        & + .powerswitches__icon
+          .powerswitches__icon_svg, svg
+            path
+              fill darken(LightOn, 90%)
+          .powerswitches__icon_glow
+            &:after
+              background-image radial-gradient(circle at center,
+                LightOn 0%,
+                LightOn 20%,
+                transparentify(LightOn, 50%) 30%,
+                transparentify(LightOn, 0%) 70%
+              )
+              width 200%
+              height 200%
+            &:before
+              background-color darken(LightOn, 100%)
+              background-image none
