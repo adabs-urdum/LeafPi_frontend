@@ -1,0 +1,69 @@
+// Slider for brightness
+// ------------------------------------------------------------
+.powerswitches
+  &__slider
+    position relative
+    height BS * BaseUIUnit * 1.4
+    width BS * BaseUIUnit * 6
+    border solid White 2px
+    background-image linear-gradient(90deg, transparentify(LightOn, 1%) 0%, transparentify(LightOn, 50%) 50%, transparentify(LightOn, 100%) 100%)
+  &__slider_indicator
+    position absolute
+    top 0
+    left 25%
+    display flex
+    justify-content center
+    align-items center
+    height BS * BaseUIUnit * 1.4
+    width BS * BaseUIUnit * 0.7
+    // border-radius BS * 9
+    background darken(LightOn, 95%)
+    cursor grab
+    background-image radial-gradient(circle at center, transparent 30%, alpha(darken(White, 80%), 50%) 95%)
+    box-shadow 0 0 BS*3 darken(LightOn, 99%)
+    &:before
+      content ''
+      position absolute
+      top 0
+      left 0
+      height 100%
+      width 100%
+      background-image linear-gradient(135deg, transparentify(White, 15%) 0, transparent 20%)
+    &:after
+      content ''
+      position absolute
+      width 100%
+      height 100%
+      background-image linear-gradient(-45deg, transparentify(White, 10%) 0%, transparent 20%)
+  &__touch_rills
+    position relative
+    display flex
+    z-index 5
+    height BS * BaseUIUnit * 0.8
+    display flex
+    justify-content space-evenly
+    width 100%
+    &:after
+      content ''
+      position absolute
+      top 50%
+      left 50%
+      transform translateX(-50%) translateY(-50%)
+      width BaseUIUnit * BS * 2.5
+      height BaseUIUnit * BS * 2.5
+      background-image radial-gradient(ellipse at center, transparentify(White, 8%) 0%, transparent 70%)
+
+  &__touch_rill
+    position relative
+    width BS * 5
+    height 100%
+    background-image linear-gradient(90deg, transparentify(LightOn, 100%) 20%, darken(White, 60%) 100%)
+    overflow hidden
+    &:after
+      content ''
+      position absolute
+      left 0
+      top 0
+      height 100%
+      width 10%
+      background transparentify(White, 70%)

@@ -4,47 +4,79 @@
     <meta charset="utf-8">
     <title>LeafPi Frontend</title>
   </head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
   <link rel="stylesheet" href="./dist/css/styles.min.css">
   <body>
 
     <section class="powerswitches">
 
-      <div class="powerswitches__switch">
-        <label class="powerswitches__switchlabel" for="powerswitches__switchcheckbox--1">
+      <div class="powerswitches__switch powerswitches__switch--radio">
+        <label class="powerswitches__switch_label" for="powerswitches__switchcheckbox--1">
           <input type="radio" class="powerswitches__switchcheckbox" name="powerswitches__switchcheckbox" id="powerswitches__switchcheckbox--1">
           <span class="powerswitches__switchlight"></span>
           <span class="powerswitches__glow"></span>
         </label>
       </div>
-      <div class="powerswitches__switch">
-        <label class="powerswitches__switchlabel" for="powerswitches__switchcheckbox--2">
+      <div class="powerswitches__switch powerswitches__switch--radio">
+        <label class="powerswitches__switch_label" for="powerswitches__switchcheckbox--2">
           <input type="radio" class="powerswitches__switchcheckbox" name="powerswitches__switchcheckbox" id="powerswitches__switchcheckbox--2">
           <span class="powerswitches__switchlight"></span>
           <span class="powerswitches__glow"></span>
         </label>
       </div>
-      <div class="powerswitches__switch">
-        <label class="powerswitches__switchlabel" for="powerswitches__switchcheckbox--3">
+      <div class="powerswitches__switch powerswitches__switch--radio">
+        <label class="powerswitches__switch_label" for="powerswitches__switchcheckbox--3">
           <input type="radio" class="powerswitches__switchcheckbox" name="powerswitches__switchcheckbox" id="powerswitches__switchcheckbox--3">
           <span class="powerswitches__switchlight"></span>
           <span class="powerswitches__glow"></span>
         </label>
       </div>
 
+    </section>
+
+    <section class="powerswitches">
+
       <div class="powerswitches__powerswitch">
-        <input type="radio" class="powerswitches__on_off" name="powerswitches__on_off" id="powerswitches__on" value="powerswitches__powerswitchhalf_on">
+        <input type="radio" class="powerswitches__on_off" name="powerswitches__on_off" id="powerswitches__on" value="powerswitches__powerswitchhalf_on" checked="checked">
+        <label class="powerswitches__powerswitchhalf powerswitches__powerswitchhalf--on" for="powerswitches__on">
+          <span>select all</span>
+        </label>
+      </div>
+
+      <div class="powerswitches__powerswitch">
+        <input type="radio" class="powerswitches__on_off" name="powerswitches__on_off" id="powerswitches__on" value="powerswitches__powerswitchhalf_on" checked="checked">
         <label class="powerswitches__powerswitchhalf powerswitches__powerswitchhalf--on" for="powerswitches__on">
           <span>ON</span>
         </label>
-        <input type="radio" class="powerswitches__on_off" name="powerswitches__on_off" id="powerswitches__off" value="powerswitches__powerswitchhalf_off" checked="checked">
-        <label class="powerswitches__powerswitchhalf powerswitches__powerswitchhalf--off" for="powerswitches__off">
+        <input type="radio" class="powerswitches__on_off" name="powerswitches__on_off" id="powerswitches__off-2" value="powerswitches__powerswitchhalf_off">
+        <label class="powerswitches__powerswitchhalf powerswitches__powerswitchhalf--off" for="powerswitches__off-2">
           <span>OFF</span>
         </label>
       </div>
 
+      <div class="powerswitches__powerswitch">
+        <input type="radio" class="powerswitches__on_off" name="powerswitches__on_off" id="powerswitches__on" value="powerswitches__powerswitchhalf_on" checked="checked">
+        <label class="powerswitches__powerswitchhalf powerswitches__powerswitchhalf--on" for="powerswitches__on">
+          <span>ON</span>
+        </label>
+        <input type="radio" class="powerswitches__on_off" name="powerswitches__on_off" id="powerswitches__off" value="powerswitches__powerswitchhalf_off">
+        <label class="powerswitches__powerswitchhalf powerswitches__powerswitchhalf--off" for="powerswitches__off">
+          <span>FCK</span>
+        </label>
+        <input type="radio" class="powerswitches__on_off" name="powerswitches__on_off" id="powerswitches__off-2" value="powerswitches__powerswitchhalf_off">
+        <label class="powerswitches__powerswitchhalf powerswitches__powerswitchhalf--off" for="powerswitches__off-2">
+          <span>OFF</span>
+        </label>
+      </div>
+
+    </section>
+
+    <section class="powerswitches">
+
       <div class="powerswitches__slider">
         <div class="powerswitches__slider_indicator">
           <div class="powerswitches__touch_rills">
+            <div class="powerswitches__touch_rill"></div>
             <div class="powerswitches__touch_rill"></div>
           </div>
         </div>
@@ -52,7 +84,75 @@
 
     </section>
 
+    <section class="powerswitches powerswitches--vertical_list">
+      <div class="powerswitches__vertical_list_wrapper">
+        <div class="powerswitches__switch powerswitches__switch--checkbox">
+          <label class="powerswitches__switch_label_text" for="powerswitches__switchcheckbox--fullscreen"><span>Fullscreen</span></label>
+          <label class="powerswitches__switch_label" for="powerswitches__switchcheckbox--fullscreen">
+            <input type="checkbox" class="powerswitches__switchcheckbox" name="powerswitches__switchcheckbox" id="powerswitches__switchcheckbox--fullscreen">
+            <span class="powerswitches__switchlight"></span>
+            <span class="powerswitches__glow"></span>
+          </label>
+        </div>
+        <div class="powerswitches__switch powerswitches__switch--checkbox">
+          <label class="powerswitches__switch_label_text" for="powerswitches__switchcheckbox--random"><span>Random effect</span></label>
+          <label class="powerswitches__switch_label" for="powerswitches__switchcheckbox--random">
+            <input type="checkbox" class="powerswitches__switchcheckbox" name="powerswitches__switchcheckbox" id="powerswitches__switchcheckbox--random">
+            <span class="powerswitches__switchlight"></span>
+            <span class="powerswitches__glow"></span>
+          </label>
+        </div>
+        <div class="powerswitches__switch powerswitches__switch--checkbox">
+          <label class="powerswitches__switch_label_text" for="powerswitches__switchcheckbox--rhythm"><span>Rhythm</span></label>
+          <label class="powerswitches__switch_label" for="powerswitches__switchcheckbox--rhythm">
+            <input type="checkbox" class="powerswitches__switchcheckbox" name="powerswitches__switchcheckbox" id="powerswitches__switchcheckbox--rhythm">
+            <span class="powerswitches__switchlight"></span>
+            <span class="powerswitches__glow"></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="powerswitches powerswitches--vertical_list powerswitches--vertical_list_radio">
+      <div class="powerswitches__vertical_list_wrapper powerswitches__vertical_list_wrapper--radio">
+        <div class="powerswitches__switch powerswitches__switch--radio">
+          <label class="powerswitches__switch_label_text" for="powerswitches__switchcheckbox--radio_1"><span>warmwhite</span></label>
+          <label class="powerswitches__switch_label" for="powerswitches__switchcheckbox--radio_1">
+            <input type="radio" class="powerswitches__switch_radio" name="powerswitches__switchcheckbox--radio" id="powerswitches__switchcheckbox--radio_1">
+            <span class="powerswitches__switchlight"></span>
+            <span class="powerswitches__glow"></span>
+          </label>
+        </div>
+        <div class="powerswitches__switch powerswitches__switch--radio">
+          <label class="powerswitches__switch_label_text" for="powerswitches__switchcheckbox--radio_2"><span>daylight</span></label>
+          <label class="powerswitches__switch_label" for="powerswitches__switchcheckbox--radio_2">
+            <input type="radio" class="powerswitches__switch_radio" name="powerswitches__switchcheckbox--radio" id="powerswitches__switchcheckbox--radio_2">
+            <span class="powerswitches__switchlight"></span>
+            <span class="powerswitches__glow"></span>
+          </label>
+        </div>
+        <div class="powerswitches__switch powerswitches__switch--radio">
+          <label class="powerswitches__switch_label_text" for="powerswitches__switchcheckbox--radio_3"><span>coldwhite</span></label>
+          <label class="powerswitches__switch_label" for="powerswitches__switchcheckbox--radio_3">
+            <input type="radio" class="powerswitches__switch_radio" name="powerswitches__switchcheckbox--radio" id="powerswitches__switchcheckbox--radio_3">
+            <span class="powerswitches__switchlight"></span>
+            <span class="powerswitches__glow"></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="powerswitches">
+      <div class="powerswitches powerswitches--button">
+        <div class="powerswitches__button_content">
+          <button class="powerswitches__button_button" type="button" name="button">
+            <span>Generate Key</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./dist/js/functions.min.js"></script>
+    <script src="./dist/js/main.js"></script>
   </body>
 </html>

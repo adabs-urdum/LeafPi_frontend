@@ -1,0 +1,53 @@
+// <button> element
+// ------------------------------------------------------------
+.powerswitches
+  text-transform uppercase
+  font-weight 700
+  &__button_button
+    position relative
+    font-weight 700
+    background none
+    color LightOn
+    margin 0
+    padding 0 BS*20
+    text-shadow 0 0 BS*1 darken(LightOn, 100%), BS*1 BS*1 BS*1 darken(LightOn, 100%)
+    height BaseUIUnit * BS * 1.4
+    background transparent
+    // border-radius BS * 10
+    cursor pointer
+    border solid White 2px
+    transition background-color 0.3s ease-out
+    text-transform uppercase
+    span
+      position relative
+      &:after
+        content ''
+        position absolute
+        left 50%
+        top 50%
+        width 120%
+        height 140%
+        transform translateX(-50%) translateY(-50%)
+        background-image radial-gradient(ellipse at center, alpha(LightOn, 30%) 0%, transparent 70%)
+    &:focus
+      outline none
+    &:active
+      background-color transparentify(White, 20%)
+    &:after
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      overflow hidden
+      background-image linear-gradient(-30deg, transparent 85%, alpha(Light, 50%) 100%)
+    &:before
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      overflow hidden
+      background-image linear-gradient(-30deg, alpha(darken(White, 50%), 60%) 0%, transparent 20%)
