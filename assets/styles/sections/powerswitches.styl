@@ -30,3 +30,15 @@
     width 80%
     display flex
     justify-content space-evenly
+
+@media BreakpointXS
+  .powerswitches
+    flex-direction column
+    &__bulbs_wrapper
+      flex-direction column
+      align-items center
+    &--text
+      .powerswitches__light_label
+        width BaseUIUnit * BS * 2
+        height BaseUIUnit * BS * 2
+        margin-bottom BS * 10

@@ -1,5 +1,6 @@
 .powerswitches
   &__powerswitch
+    position relative
     display flex
     flex-direction column
     min-width BaseUIUnit * BS * 1.5
@@ -15,6 +16,14 @@
       height BaseUIUnit * BS * 1.5 * 5
     &--6
       height BaseUIUnit * BS * 1.5 * 6
+  &__list_title
+    //page dependent
+    position absolute
+    left 0
+    bottom 0
+    transform rotate(-90deg) translateY(0)
+    transform-origin left bottom
+    color darken(LightOn, 50%)
   &__powerswitchpart
     font-weight 700
     position relative
@@ -81,3 +90,20 @@
           opacity 1
         .powerswitches__powerswitchpart_text
           transform scale(1)
+
+
+@media BreakpointXS
+  .powerswitches
+    &__powerswitch
+      min-width BaseUIUnit * BS * 3
+      margin-bottom BS * 150
+      &--2
+        height BaseUIUnit * BS * 3 * 2
+      &--3
+        height BaseUIUnit * BS * 3 * 3
+      &--4
+        height BaseUIUnit * BS * 3 * 4
+      &--5
+        height BaseUIUnit * BS * 3 * 5
+      &--6
+        height BaseUIUnit * BS * 3 * 6

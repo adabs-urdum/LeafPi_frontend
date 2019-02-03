@@ -2,6 +2,7 @@ html
   font-family 'Ubuntu', sans-serif
   font-weight 200
   font-size "%spx" % (BaseFontSize)
+  bs-font-size(20)
   line-height 120%
   color Black
 
@@ -12,10 +13,10 @@ h1, h2, h3, h4, h5, h6
   font-weight 700
 
 h1
-  bs-font-size(62)
+  bs-font-size(60)
 
 h2
-  bs-font-size(44)
+  bs-font-size(40)
 
 h3
   bs-font-size(36)
@@ -61,3 +62,9 @@ img, canvas
 
   .desktop_only
     display none
+
+@media BreakpointXS
+  html
+    bs-font-size(60)
+  h4
+    bs-font-size(20)
