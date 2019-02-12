@@ -1,4 +1,24 @@
+const e = React.createElement;
+import LikeButton from './button.js';
+
 (function($) {
+
+  let $power_on = $('#power_on');
+  let $power_off = $('#power_off');
+
+  $power_off.on('click', function(e){
+    $.get( "leafpi-backend.com/turn-off", function(data) {
+    // $.get( "http://192.168.0.60", function(data) {
+      console.log(data);
+    });
+  });
+
+  $power_on.on('click', function(e){
+    $.get( "leafpi-backend.com/turn-on", function(data) {
+    // $.get( "http://192.168.0.60", function(data) {
+      console.log(data);
+    });
+  });
 
   $.fn.Plugin = function() {
     var $main = $(this);
@@ -95,9 +115,16 @@
     }
   }
 
+  let idiot = 'ich';
+
+  idiot += ' nicht';
+
+  console.log(idiot);
+
+
+
   // keydown event handler
   document.addEventListener('keydown', function(e) {
-    console.log('hello');
     if (e.keyCode == 13 || e.keyCode == 70) { // F or Enter key
       console.log('triggered');
       toggleFullScreen();
@@ -105,3 +132,6 @@
   }, false);
 
 })(jQuery);
+
+// const domContainer = document.querySelector('#like_button_container');
+// ReactDOM.render(e(LikeButton), domContainer);

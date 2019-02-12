@@ -1,0 +1,27 @@
+.grid
+  font-size 0.8rem
+  &__wrapper
+    display grid
+    grid-template-columns repeat(3, minmax(200px, 1fr))
+    grid-template-rows repeat(3, minmax(200px, 1fr))
+    grid-gap 0
+
+  &__element
+    display grid
+    grid-template-columns 1fr 3fr 1fr
+
+  &__main
+    grid-column-start 2
+    grid-column-end 3
+    background green
+
+  &__side
+    background-color rgba(125,100,170, 0.5)
+    &--left
+      grid-column-start 1
+      grid-column-end 2
+      background-color lightgreen
+    &--right
+      grid-column-start 3
+      grid-column-end 4
+      background lime

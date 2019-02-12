@@ -10,6 +10,7 @@
   <body>
 
     <section class="powerswitches powerswitches--text">
+      <a href="/grid.html">grid</a>
       <div class="powerswitches__text_wrapper">
         <h1>LeafPi UI Kit v0.1</h1>
         <p>No JS involved yet.</p>
@@ -175,10 +176,18 @@
     </section>
 
     <section class="powerswitches">
-      <div class="powerswitches powerswitches--button">
+      <div class="powerswitches--button">
         <div class="powerswitches__button_content">
-          <button class="powerswitches__button_button" type="button" name="button">
-            <span>Generate Key</span>
+          <button id="power_on" class="powerswitches__button_button" type="button" name="button">
+            <span>light</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="powerswitches--button">
+        <div class="powerswitches__button_content">
+          <button id="power_off" class="powerswitches__button_button" type="button" name="button">
+            <span>darkness</span>
           </button>
         </div>
       </div>
@@ -252,7 +261,8 @@
         </div>
       </div>
     </section>
-
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./dist/js/main.js"></script>
   </body>
