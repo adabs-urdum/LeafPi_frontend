@@ -7,14 +7,14 @@ import LikeButton from './button.js';
   let $power_off = $('#power_off');
 
   $power_off.on('click', function(e){
-    $.get( "leafpi-backend.com/turn-off", function(data) {
+    $.get( "http://leafpi-backend.com/turn-off", function(data) {
     // $.get( "http://192.168.0.60", function(data) {
       console.log(data);
     });
   });
 
   $power_on.on('click', function(e){
-    $.get( "leafpi-backend.com/turn-on", function(data) {
+    $.get( "http://leafpi-backend.com/turn-on", function(data) {
     // $.get( "http://192.168.0.60", function(data) {
       console.log(data);
     });
